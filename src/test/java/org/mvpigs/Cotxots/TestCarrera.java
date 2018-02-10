@@ -40,30 +40,27 @@ public class TestCarrera {
 
 	@Test
 	public void testGetDestino() {
+
 		Assert.assertEquals("Magaluf",carrera.getDestino());
 	}
 
 	@Test
 	public void testGetDistancia() {
+
 		Assert.assertEquals(7.75,carrera.getDistancia(),0.1);
 	}
 
 	@Test
 	public void testGetTiempoEsperado() {
-		Assert.assertEquals(10, carrera.getTiempoEsperado());
-	}
 
-	@Test
-	public void testGetTarjetaCredito() {
-		fail("Not yet implemented");
+		Assert.assertEquals(10, carrera.getTiempoEsperado());
 	}
 
 
 	@Test
 	public void testGetCosteEsperado() {
 		
-		
-		fail("Not yet implemented");
+	    Assert.assertEquals(13.9625,carrera.getCosteEsperado(),0.01);
 	}
 
 	@Test

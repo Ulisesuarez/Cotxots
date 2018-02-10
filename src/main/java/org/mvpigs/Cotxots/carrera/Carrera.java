@@ -24,7 +24,7 @@ public class Carrera {
 
 	public void setDestino(String destino) {
 		this.destino=destino;
-		
+
 	}
 
 	public void setDistancia(double distancia) {
@@ -62,8 +62,10 @@ public class Carrera {
 		return this.TiempoEsperado;
 	}
 	public double getCosteEsperado() {
+
+
 		
-		return 0;
+		return Tarifa.getCosteTotalEsperado(this);
 	}
 
 	public void asignarConductor(PoolConductores conductores) {
