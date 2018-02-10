@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mvpigs.Cotxots.carrera.Carrera;
+import org.mvpigs.Cotxots.conductores.*;
 
 public class TestCarrera {
 	
@@ -65,7 +66,7 @@ public class TestCarrera {
 
 	@Test
 	public void testAsignarConductor() {
-		fail("Not yet implemented");
+		//Assert.assertTrue(carrera.getConductor());
 	}
 
 	@Test

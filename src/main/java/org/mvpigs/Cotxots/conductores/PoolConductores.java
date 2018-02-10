@@ -4,8 +4,30 @@ import java.util.ArrayList;
 
 public class PoolConductores {
 
-	public PoolConductores(ArrayList<Conductor> poolConductores) {
-		// TODO Auto-generated constructor stub
+    private ArrayList<Conductor> poolConductores;
+
+
+
+    public PoolConductores(ArrayList<Conductor> poolConductores) {
+
+		this.poolConductores=poolConductores;
+
 	}
+
+	public ArrayList<Conductor> getPoolConductores() {
+        return poolConductores;
+    }
+
+	public Conductor asignarCondtuctor(){
+	    for (Conductor conductor: this.poolConductores) {
+
+	        if (!conductor.isOcupado()){
+
+	            conductor.setOcupado(true);
+	            return conductor;
+            }
+        }
+
+     return null;}
 
 }

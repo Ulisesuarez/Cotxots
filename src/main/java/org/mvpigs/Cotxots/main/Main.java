@@ -83,5 +83,33 @@ public class Main {
 		carrera.asignarConductor(conductores);
 
 		// Info por pantalla
+		System.out.println("Driver: " + carrera.getConductor().getNombre());
+		System.out.println("Type: " + carrera.getConductor().getModelo());
+		System.out.println("Matricula: " + carrera.getConductor().getMatricula());
+		System.out.println("Stars: " + carrera.getConductor().getValoracionMedia());
+		System.out.println("From: " + carrera.getOrigen());
+		System.out.println("To: " + carrera.getDestino());
+		System.out.println("Disponible para ti!");
+
+		carrera.setTiempoCarrera(10);
+		carrera.recibirPropina(1);
+		double pago=carrera.getCosteTotal();
+		carrera.realizarPago(pago);
+		carrera.liberarConductor();
+
+
+        System.out.println("\n#####" + "\t Pay and Tip \t" + "#####\n")   ;
+        System.out.println("Driver: " + carrera.getConductor().getNombre());
+        System.out.println("TIP: " + carrera.getPropina());
+        System.out.println("Visa: " + carrera.getTarjetaCredito());
+        System.out.println("Total: " + carrera.getCosteTotal());
+        System.out.println("Ocupado?: " + carrera.getConductor().isOcupado());
+
+
+        carrera.getConductor().setValoracion((byte)5);
+        System.out.println("\n#####" + "\t Rate your Driver \t" + "#####\n")   ;
+        System.out.println("Driver: " + carrera.getConductor().getNombre());
+        System.out.println("Stars: " + carrera.getConductor().getValoracionMedia());
 	}
+
 }

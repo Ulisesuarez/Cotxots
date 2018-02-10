@@ -3,15 +3,20 @@ package org.mvpigs.Cotxots.carrera;
 
 import org.mvpigs.Cotxots.conductores.PoolConductores;
 import org.mvpigs.Cotxots.tarifa.Tarifa;
+import org.mvpigs.Cotxots.conductores.Conductor;
 public class Carrera {
 
 	private String tarjetaCredito;
 	private String origen;
 	private String destino;
 	private double distancia;
-	private int TiempoEsperado;
+	private int tiempoEsperado;
+	private int tiempoCarrera;
+    private double costeTotal=0;
+    private Conductor conductor;
+    private double propina=0;
 
-	public Carrera(String tarjetaCredito) {
+    public Carrera(String tarjetaCredito) {
 		this.tarjetaCredito=tarjetaCredito;
 		
 		
@@ -33,7 +38,7 @@ public class Carrera {
 	}
 
 	public void setTiempoEsperado(int tiempoEsperadoMinutos) {
-		this.TiempoEsperado=tiempoEsperadoMinutos;
+		this.tiempoEsperado =tiempoEsperadoMinutos;
 		
 	}
 
@@ -59,7 +64,7 @@ public class Carrera {
 	
 	public int getTiempoEsperado() {
 		
-		return this.TiempoEsperado;
+		return this.tiempoEsperado;
 	}
 	public double getCosteEsperado() {
 
@@ -69,27 +74,49 @@ public class Carrera {
 	}
 
 	public void asignarConductor(PoolConductores conductores) {
-		// TODO Auto-generated method stub
+        this.conductor=conductores.asignarCondtuctor();
 		
 	}
 
-	public Object getConductor() {
-		// TODO Auto-generated method stub
-		return null;
+	public Conductor getConductor() {
+
+		return this.conductor;
+
 	}
 
-	public void realizarPago(String costeEsperado) {
-		// TODO Auto-generated method stub
+    public int getTiempoCarrera() {
+        return this.tiempoCarrera;
+    }
+
+    public void setTiempoCarrera(int tiempoCarrera) {
+        this.tiempoCarrera = tiempoCarrera;
+    }
+
+    public double getCosteTotal() {
+        this.costeTotal=Tarifa.getCosteTotal(this);
+
+        return this.costeTotal;
+    }
+
+
+
+
+	public void realizarPago(double pago) {
+
+	    this.costeTotal=pago;
+
 		
 	}
 
-	public void recibirPropina(int i) {
-		// TODO Auto-generated method stub
-		
+	public void recibirPropina(double propina) {
+		this.propina=propina;
 	}
 
+	public double getPropina(){
+        return this.propina;
+    }
 	public void liberarConductor() {
-		// TODO Auto-generated method stub
+		this.conductor.setOcupado(false);
 		
 	}
 
