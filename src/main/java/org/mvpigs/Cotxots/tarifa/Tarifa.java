@@ -26,12 +26,12 @@ public class Tarifa {
         return costeTotalEsperado;
     }
     public static double getCosteTotal(Carrera carrera){
-        double costeTotalEsperado=getCosteDistancia(carrera.getDistancia())+getCosteMinutos(carrera.getTiempoCarrera());
-        if (costeTotalEsperado<costeMinimo){
-            costeTotalEsperado=costeMinimo;
+        double costeTotal=getCosteDistancia(carrera.getDistancia())+getCosteMinutos(carrera.getTiempoCarrera());
+        if (costeTotal<costeMinimo){
+            costeTotal=costeMinimo;
         }
         //costeTotalEsperado=costeTotalEsperado+costeTotalEsperado*porcentajeComision;
-        return costeTotalEsperado;
+        return costeTotal;
     }
 }
 

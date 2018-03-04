@@ -1,0 +1,85 @@
+@startuml
+package org.mvpigs.Cotxots.conductores {
+  class Conductor {
+    - matricula : String
+    - modelo : String
+    - nombre : String
+    - ocupado : boolean
+    - valoracionMedia : double
+    - valoraciones : ArrayList<Byte>
+    + Conductor(nombre : String)
+    + getMatricula() : String
+    + getModelo() : String
+    + getNombre() : String
+    + getValoracionMedia() : double
+    + getValoraciones() : ArrayList<Byte>
+    + isOcupado() : boolean
+    + setMatricula(matricula : String)
+    + setModelo(modelo : String)
+    + setOcupado(ocupado : boolean)
+    + setValoracion(valoracion : byte)
+    + setValoracionMedia()
+    + setValoraciones(valoraciones : ArrayList<Byte>)
+  }
+  class PoolConductores {
+    - poolConductores : ArrayList<Conductor>
+    + PoolConductores(poolConductores : ArrayList<Conductor>)
+    + asignarCondtuctor() : Conductor
+    + getPoolConductores() : ArrayList<Conductor>
+  }
+}
+package org.mvpigs.Cotxots.tarifa {
+  class Tarifa {
+    - costeMilla : double {static}
+    - costeMinimo : int {static}
+    - costeMinuto : double {static}
+    - porcentajeComision : double {static}
+    + Tarifa()
+    + getCosteDistancia(distancia : double) : double {static}
+    + getCosteMinutos(minutos : int) : double {static}
+    + getCosteTotal(carrera : Carrera) : double {static}
+    + getCosteTotalEsperado(carrera : Carrera) : double {static}
+  }
+}
+package org.mvpigs.Cotxots.carrera {
+  class Carrera {
+    - conductor : Conductor
+    - costeTotal : double
+    - destino : String
+    - distancia : double
+    - origen : String
+    - propina : double
+    - tarjetaCredito : String
+    - tiempoCarrera : int
+    - tiempoEsperado : int
+    + Carrera(tarjetaCredito : String)
+    + asignarConductor(conductores : PoolConductores)
+    + getConductor() : Conductor
+    + getCosteEsperado() : double
+    + getCosteTotal() : double
+    + getDestino() : String
+    + getDistancia() : double
+    + getOrigen() : String
+    + getPropina() : double
+    + getTarjetaCredito() : String
+    + getTiempoCarrera() : int
+    + getTiempoEsperado() : int
+    + liberarConductor()
+    + realizarPago(pago : double)
+    + recibirPropina(propina : double)
+    + setDestino(destino : String)
+    + setDistancia(distancia : double)
+    + setOrigen(origen : String)
+    + setTiempoCarrera(tiempoCarrera : int)
+    + setTiempoEsperado(tiempoEsperadoMinutos : int)
+  }
+}
+package org.mvpigs.Cotxots.main {
+  class Main {
+    + Main()
+    + main(args : String[]) {static}
+  }
+}
+PoolConductores -->  "-poolConductores" Conductor
+Carrera -->  "-conductor" Conductor
+@enduml

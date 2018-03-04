@@ -22,4 +22,33 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.github.markusmo3.urm</groupId>
+        <artifactId>urm-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <!-- if outputDirectory is not set explicitly it will default to your build dir -->
+
+          <packages>
+            <param>org.mvpigs.Cotxots</param>
+            <!--<param>org.mvpigs.</param>-->
+          </packages>
+          <ignores>
+            <param>com.mycompany.mypackage.MyClass</param>
+            <param>com.mycompany.other_package.OtherClass</param>
+          </ignores>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>map</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
